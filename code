@@ -1,0 +1,27 @@
+# opening and reading the file
+file = open("dq_unisex_names.csv", "r")
+names = file.read()
+#converts the string to a list
+names_list = names.split("\n")
+
+#converts the list of strings to a list of lists
+
+nested_list = []
+for list in names_list:
+     comma_list = list.split(',')
+     nested_list.append(comma_list) 
+     
+#convert the list of strings to a list of string and float     
+numerical_list = []
+for list in nested_list:
+    name = list[0]
+    number = float(list[1])
+    new_list = [name, number]
+    numerical_list.append(new_list)
+
+#makes a list that contains the names shared by 1,000 people or more
+    
+thousand_or_greater = []
+for list in numerical_list:
+   if list[1]>=1000:
+     thousand_or_greater.append(list[0])
