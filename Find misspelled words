@@ -1,5 +1,6 @@
 f = open("story.txt", 'r')
 story_string = f.read()
+vocabulary = open("dictionary.txt", "r").read()
 clean_chars = [",", ".", "'", ";", "\n"]
 
 # this function cleans special characters
