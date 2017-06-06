@@ -1,0 +1,26 @@
+import csv #imports the package
+
+#define a class
+class Team():
+    def __init__(self, name):    #define a method where we define properties of method
+        self.name = name
+        f = open("nfl.csv", 'r')
+        csvreader = csv.reader(f)
+        self.nfl = list(csvreader)
+# this method counts the total number of wins in an year
+    def count_total_wins(self):     
+        count = 0
+        for row in self.nfl:
+            if row[2] == self.name:
+                count = count + 1
+        return count
+ # this method counts the number of wins by a team in a year   
+    def count_wins_in_year(self, year):
+         counter = 0
+         for rows in self.nfl:
+            if rows[0] == year and rows[2] == self.name:
+              counter = counter + 1
+         return counter
+
+niners = Team("San Francisco 49ers")    
+niners_wins_2013 = niners.count_wins_in_year("2013")
