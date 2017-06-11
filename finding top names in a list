@@ -1,0 +1,33 @@
+#Counts the total number of male names in a list and returns the most used male name
+top_male_names = []
+male_name_counts = {}
+for row in legislators:
+      if row[3] == 'M' and row[7] > 1940:
+        name = row[1]
+        if name in male_name_counts:
+          male_name_counts[name]= male_name_counts[name]+1
+        else:
+          male_name_counts[name] = 1
+ 
+highest_male_count = None
+for name, count in male_name_counts.items():
+   if highest_male_count is None or count>highest_male_count:
+     highest_male_count = count
+top_male_names = [name for name, key in male_name_counts.items() if key == highest_male_count]
+
+#Counts the total number of female names in a list and returns the most used female name
+top_female_names = []
+female_name_counts = {}
+for row in legislators:
+      if row[3] == 'F' and row[7] > 1940:
+        name = row[1]
+        if name in female_name_counts:
+          female_name_counts[name]= female_name_counts[name]+1
+        else:
+          female_name_counts[name] = 1
+ 
+highest_male_count = None
+for name, count in male_name_counts.items():
+   if highest_female_count is None or count>highest_female_count:
+     highest_male_count = count
+top_female_names = [name for name, key in female_name_counts.items() if key == highest_female_count]
